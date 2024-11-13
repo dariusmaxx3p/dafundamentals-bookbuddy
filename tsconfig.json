@@ -28,6 +28,9 @@
       "@contexts/*": ["./contexts/*"],
       "@locales/*": ["./locales/*"],
       "@types/*": ["./types/*"],
+      "@entities/*": ["./entities/*"],
+      "@usecases/*": ["./usecases/*"],
+      "@adapters/*": ["./adapters/*"],
       "@/*": ["./*"]
     },
     "emitDecoratorMetadata": true,
