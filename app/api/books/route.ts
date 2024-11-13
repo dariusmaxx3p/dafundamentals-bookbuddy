@@ -3,7 +3,7 @@ import BookRepository from "@adapters/repositories/BookRepository";
 import { Book } from "@entities/Book";
 import { LoadBooks } from "@usecases/LoadBooks";
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: Request) {
   const url = new URL(req.url);
   const searchParams = url.searchParams;
   const count = Number(searchParams.get("count"));
