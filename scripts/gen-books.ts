@@ -103,7 +103,7 @@ export function createFakeBook(): Book {
     description: faker.lorem.paragraphs(1),
     cover: COVER_PATHS[Math.floor(Math.random() * COVER_PATHS.length)],
     authors: [
-      ...Array.from({ length: Math.floor(Math.random() * 3) }, () =>
+      ...Array.from({ length: Math.floor(Math.random() * 3 + 1) }, () =>
         faker.person.fullName()
       ),
     ],
@@ -111,7 +111,7 @@ export function createFakeBook(): Book {
     format: FORMATS[Math.floor(Math.random() * FORMATS.length)],
     genres: [
       ...Array.from(
-        { length: Math.floor(Math.random() * 3) },
+        { length: Math.floor(Math.random() * 3 + 1) },
         () => GENRES[Math.floor(Math.random() * GENRES.length)]
       ),
     ],
