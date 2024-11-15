@@ -1,6 +1,7 @@
 import BookRepository from "@adapters/repositories/BookRepository";
 import { TYPES } from "../types/index";
 import { inject, injectable } from "inversify";
+import "reflect-metadata";
 
 export type LoadBooksInput = {
   count: number;

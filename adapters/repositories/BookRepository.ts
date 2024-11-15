@@ -1,6 +1,7 @@
 import { Book } from "@entities/Book";
 import path from "path";
 import { promises as fs } from "fs";
+import "reflect-metadata";
 import { injectable } from 'inversify';
 
 @injectable()
