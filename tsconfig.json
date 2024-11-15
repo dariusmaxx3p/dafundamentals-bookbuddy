@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "ES6"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,29 +18,65 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "types": [
+      "reflect-metadata"
+    ],
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@components/*": ["./components/*"],
-      "@pages/*": ["./pages/*"],
-      "@styles/*": ["./styles/*"],
-      "@utils/*": ["./utils/*"],
-      "@features/*": ["./features/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@contexts/*": ["./contexts/*"],
-      "@locales/*": ["./locales/*"],
-      "@types/*": ["./types/*"],
-      "@entities/*": ["./entities/*"],
-      "@usecases/*": ["./usecases/*"],
-      "@adapters/*": ["./adapters/*"],
-      "@/*": ["./*"]
+      "@components/*": [
+        "./components/*"
+      ],
+      "@pages/*": [
+        "./pages/*"
+      ],
+      "@styles/*": [
+        "./styles/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@features/*": [
+        "./features/*"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@contexts/*": [
+        "./contexts/*"
+      ],
+      "@locales/*": [
+        "./locales/*"
+      ],
+      "@types/*": [
+        "./types/*"
+      ],
+      "@entities/*": [
+        "./entities/*"
+      ],
+      "@usecases/*": [
+        "./usecases/*"
+      ],
+      "@adapters/*": [
+        "./adapters/*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
