@@ -25,6 +25,7 @@ export class WinstonLogger implements ILogger {
         ),
         defaultMeta: { service: "bookbuddy-service" },
         transports: [
+            new transports.Console({ format: format.combine(format.colorize(), format.simple()) }),
             new transports.File({ filename: path.resolve(LOG_DIR, 'error.log'), level: "error", maxFiles: 3, maxsize: 10_000_000 }),
             new transports.File({ filename: path.resolve(LOG_DIR, 'combined.log'), maxFiles: 1, maxsize: 10_000_000 }),
         ],
