@@ -1,0 +1,4 @@
+{"level":"info","message":"Operation \"LoadBooks\" took 0.200 ms.","service":"bookbuddy-service","timestamp":"2024-11-15T08:10:40.415Z"}
+{"level":"info","message":"Operation \"LoadBooks\" took 0.055 ms.","service":"bookbuddy-service","timestamp":"2024-11-15T08:10:40.779Z"}
+{"level":"info","message":"Operation \"LoadBooks\" took 0.158 ms.","service":"bookbuddy-service","timestamp":"2024-11-15T08:12:37.180Z"}
+{"level":"info","message":"Operation \"LoadBooks\" took 0.066 ms.","service":"bookbuddy-service","timestamp":"2024-11-15T08:12:37.560Z"}
