@@ -1,11 +1,13 @@
 import { Book } from "@entities/Book";
 import path from "path";
 import { promises as fs } from "fs";
+import { injectable } from 'inversify';
 
+@injectable()
 export default class BookRepository {
   private books: Book[] = [];
   private BOOK_FOLDER_PATH = path.join(process.cwd(), "./data/books");
-  constructor() {}
+  constructor() { }
 
   async loadBooks(count: number) {
     this.books = [];
