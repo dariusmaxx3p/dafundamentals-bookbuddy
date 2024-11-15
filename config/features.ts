@@ -1,9 +1,7 @@
-import { AppFeatures } from "@contexts/app-context";
-
 export const FEATURES = {
     ADVANCED_SEARCH: "advancedSearch",
 }
 
-export const DEFAULT_FEATURES: AppFeatures = {
+export const DEFAULT_FEATURES = {
     [FEATURES.ADVANCED_SEARCH]: false,
 }

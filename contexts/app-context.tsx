@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import { Config } from "@/config/config-loader";
 import { DEFAULT_FEATURES } from "@/config/features";
 import { createContext, ReactElement, useReducer } from "react";
 
@@ -14,22 +15,14 @@ export type AppContextAction = {
   payload: any;
 };
 
-export type AppFeatures = {
-  [key: string]: boolean;
-}
-
-export type AppState = {
-  features: AppFeatures
-};
-
 export type AppContextType = {
-  state: AppState;
+  state: Config;
   dispatch?: (action: any) => void;
 };
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 
-function appContextReducer(state: AppState, action: AppContextAction) {
+function appContextReducer(state: Config, action: AppContextAction) {
   switch (action.type) {
     case AppContextActionType.SET_FEATURES:
       {
