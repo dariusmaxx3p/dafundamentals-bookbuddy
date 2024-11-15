@@ -5,4 +5,6 @@ export const TYPES = {
 
     // Use cases
     LOAD_BOOKS: Symbol.for("LoadBooks"),
+    LOGGER: Symbol.for("Logger"),
+    METRICS: Symbol.for("Metrics"),
 }

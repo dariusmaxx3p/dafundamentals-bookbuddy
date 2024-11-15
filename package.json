@@ -26,7 +26,8 @@
     "reflect-metadata": "^0.2.2",
     "short-uuid": "^5.2.0",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.2.0",
