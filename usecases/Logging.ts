@@ -1,6 +1,7 @@
 import { createLogger, format, transports } from "winston";
 import "reflect-metadata";
 import { injectable } from "inversify";
+import path from "path";
 
 export interface ILogger {
     info(message: string, meta?: any): void;
@@ -8,6 +9,8 @@ export interface ILogger {
     error(message: string, meta?: any): void;
     debug(message: string, meta?: any): void;
 }
+
+const LOG_DIR = path.resolve(process.cwd(), "logs");
 
 
 @injectable()
@@ -22,8 +25,8 @@ export class WinstonLogger implements ILogger {
         ),
         defaultMeta: { service: "bookbuddy-service" },
         transports: [
-            new transports.File({ filename: "logs/error.log", level: "error" }),
-            new transports.File({ filename: "logs/combined.log" }),
+            new transports.File({ filename: path.resolve(LOG_DIR, 'error.log'), level: "error", maxFiles: 3, maxsize: 10_000_000 }),
+            new transports.File({ filename: path.resolve(LOG_DIR, 'combined.log'), maxFiles: 1, maxsize: 10_000_000 }),
         ],
     });
 
