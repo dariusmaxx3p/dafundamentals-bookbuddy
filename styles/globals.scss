@@ -126,3 +126,34 @@ body {
     mask-size: 200vmax;
   }
 }
+
+.gradient-shadow {
+  background: linear-gradient(
+    45deg,
+    #bbff33,
+    #0acc4e,
+    #5465ff,
+    #c37aff,
+    #fd78ff
+  );
+  opacity: 0.7;
+  transform: translateY(8px) scale(1.05);
+}
+
+.gradient-line {
+  @apply bg-gradient-to-r;
+  @apply from-green-yellow-500;
+  @apply via-spring-green-500;
+  @apply via-blue-500;
+  @apply to-pink-500;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r;
+  @apply from-green-yellow-500;
+  @apply via-spring-green-500;
+  @apply via-blue-500;
+  @apply to-pink-500;
+  @apply text-transparent;
+  @apply bg-clip-text;
+}

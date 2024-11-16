@@ -11,10 +11,11 @@ export default function Logo(props: {
   className?: string;
   width?: number;
   height?: number;
+  hoverInitial?: boolean;
 }) {
   const locale = useCurrentLocale();
-  const { className, width, height } = props;
-  const [hover, setHover] = useState(false);
+  const { className, width, height, hoverInitial } = props;
+  const [hover, setHover] = useState(hoverInitial ?? false);
 
   const onMouseEnter = () => setHover(true);
 
@@ -45,6 +46,10 @@ export default function Logo(props: {
             hover ? { opacity: 1, width: "auto" } : { opacity: 0, width: 0 }
           }
           className={`${styles["logo__text"]}`}
+          style={{
+            fontWeight: 200,
+            letterSpacing: "0.2rem",
+          }}
         >
           BookBuddy
         </motion.h1>

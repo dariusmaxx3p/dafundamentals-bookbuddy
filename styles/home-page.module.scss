@@ -1,0 +1,34 @@
+.hero__text {
+  @apply font-sans;
+  @apply text-6xl;
+  @apply font-bold;
+
+  line-height: 6rem;
+  letter-spacing: 0.2rem;
+  font-weight: 200;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    @apply bg-gradient-to-r;
+    @apply from-green-yellow-500;
+    @apply via-spring-green-500;
+    @apply via-blue-500;
+    @apply to-pink-500;
+    @apply text-transparent;
+    @apply bg-clip-text;
+  }
+}
+
+.move-btn {
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(
+      to right,
+      hsl(var(--background)),
+      hsl(var(--background))
+    ),
+    linear-gradient(45deg, #bbff33, #0dff62, #5465ff, #fd78ff);
+  border: 2px solid transparent;
+  @apply bg-background;
+}

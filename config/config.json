@@ -1,5 +1,7 @@
 {
-    "features": {
-        "advancedSearch": false
-    }
+  "features": {
+    "advancedSearch": false,
+    "toggleTheme": false,
+    "toggleLocale": true
+  }
 }
