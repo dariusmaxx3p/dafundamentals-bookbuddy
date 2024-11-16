@@ -11,6 +11,7 @@ export class Book {
     public publishedDate: string,
     public publisher: string,
     public pageCount: number,
-    public format: string
+    public format: string,
+    public price: number
   ) {}
 }

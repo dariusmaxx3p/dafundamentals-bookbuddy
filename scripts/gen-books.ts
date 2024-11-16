@@ -21,6 +21,7 @@ export type Book = {
   pageCount: number;
   edition: string;
   format: string;
+  price?: number;
 };
 
 const COVER_PATHS = [
@@ -119,6 +120,7 @@ export function createFakeBook(): Book {
     pageCount: Math.floor(Math.random() * 1000),
     publisher: faker.company.name(),
     id: uuid(),
+    price: Math.floor(Math.random() * 300),
   };
 }
 
@@ -150,6 +152,51 @@ export function genBooks() {
   books.forEach((chunk, index) => {
     writeBooks(chunk, `books-${index}.json`);
   });
+
+  // Save genre-books.json
+  const allBooks: Book[] = books.flat();
+  saveGenreBooks(allBooks);
+}
+
+function groupBooksByGenres(books: Book[]): { [key: string]: string[] } {
+  const grouped: { [key: string]: string[] } = {};
+  books.forEach((book) => {
+    book.genres.forEach((genre) => {
+      if (!grouped[genre]) {
+        grouped[genre] = [];
+      }
+      grouped[genre].push(book.id);
+    });
+  });
+
+  // Unique the book ids
+  Object.keys(grouped).forEach((genre) => {
+    grouped[genre] = [...new Set(grouped[genre])];
+  });
+  return grouped;
+}
+
+function saveGenreBooks(books: Book[]) {
+  const grouped = groupBooksByGenres(books);
+  const genres: {
+    [key: string]: {
+      count: number;
+      books: string[];
+    };
+  } = {};
+
+  Object.keys(grouped).forEach((genre) => {
+    genres[genre] = {
+      count: grouped[genre].length,
+      books: grouped[genre],
+    };
+  });
+
+  const data = JSON.stringify(genres, null, 2);
+  const filename = "genre-books.json";
+  const file = path.join(DATA_FOLDER, "genres", filename);
+
+  fs.writeFileSync(file, data, "utf-8");
 }
 
 genBooks();
