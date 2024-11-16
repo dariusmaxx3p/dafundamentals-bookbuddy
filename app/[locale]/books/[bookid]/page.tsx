@@ -1,4 +1,6 @@
-export default async function Book(props: { params: { bookid: string } }) {
+export default async function Book(props: {
+  params: Promise<{ bookid: string }>;
+}) {
   const { bookid } = await props.params;
   return (
     <div>
