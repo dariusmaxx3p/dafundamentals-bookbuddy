@@ -5,7 +5,7 @@ import BigMenu from "@components/ui/big-menu";
 import styles from "@styles/home-page.module.scss";
 import { MoveDown } from "lucide-react";
 import GradientLine from "@components/ui/grandient-line";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AppContextActionType, useAppContext } from "@contexts/app-context";
 import { GENRES_URL } from "@/misc/constants";
 
@@ -31,7 +31,7 @@ export default function HomePage() {
     };
 
     getGeneres();
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setGenres(state.genres);

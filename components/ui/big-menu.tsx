@@ -32,7 +32,7 @@ export default function BigMenu() {
       motionWidth.set(90);
       motionHeight.set(90);
     }
-  }, [open]);
+  }, [open, motionHeight, motionWidth]);
 
   const toggleOpen = () => {
     setOpen(!open);
