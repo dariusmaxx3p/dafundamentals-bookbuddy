@@ -1,6 +1,5 @@
 "use client";
 
-import Accessibility from "./accessibility";
 import Logo from "./logo";
 import { motion } from "framer-motion";
 
@@ -13,7 +12,6 @@ export default function Header() {
       <motion.div layout>
         <Logo width={32} height={32} />
       </motion.div>
-      <Accessibility />
     </motion.div>
   );
 }

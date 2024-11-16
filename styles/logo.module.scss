@@ -1,11 +1,21 @@
+// .logo__text {
+//   // Gradient text
+//   @apply bg-gradient-to-r;
+//   @apply from-pink-500;
+//   @apply to-green-yellow-500;
+//   @apply text-transparent;
+//   @apply bg-clip-text;
+//   @apply text-xl;
+//   @apply font-sans;
+//   @apply font-bold;
+// }
+
 .logo__text {
-  // Gradient text
+  @apply font-sans;
+  @apply text-2xl;
   @apply bg-gradient-to-r;
-  @apply from-indigo-500;
-  @apply to-green-500;
+  @apply from-pink-500;
+  @apply to-pink-600;
   @apply text-transparent;
   @apply bg-clip-text;
-  @apply text-xl;
-  @apply font-sans;
-  @apply font-bold;
 }
