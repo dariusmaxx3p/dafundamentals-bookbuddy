@@ -1,3 +1,12 @@
+import { DEFAULT_METADATA } from "@/misc/constants";
+
+export async function generateMetadata() {
+  return {
+    ...DEFAULT_METADATA,
+    title: "Books",
+  };
+}
+
 export default async function Book(props: {
   params: Promise<{ bookid: string }>;
 }) {
