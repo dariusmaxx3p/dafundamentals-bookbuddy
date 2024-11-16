@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { Config } from "@/config/config-loader";
 import { DEFAULT_FEATURES } from "@/config/features";
 import { CONFIG_URL, GENRES_URL, LOCAL_STORAGE_KEYS } from "@/misc/constants";
+import { Genre } from "@/types";
 import { useChangeLocale } from "@locales/client";
 import {
   createContext,
@@ -27,7 +29,7 @@ export type AppContextAction = {
 };
 
 export type AppContextFull = Config & {
-  genres: string[];
+  genres: Genre[];
   locale: string;
 };
 
@@ -143,8 +145,11 @@ export function AppContextProvider({
   useEffect(() => {
     if (!dispatch) return;
 
+    const locale = localStorage.getItem(LOCAL_STORAGE_KEYS.LOCALE);
+    if (!locale) return;
+
     const getGeneres = async () => {
-      const response = await fetch(GENRES_URL);
+      const response = await fetch(`${GENRES_URL}?locale=${locale}`);
       const data = await response.json();
 
       const genres = data.data;
@@ -158,7 +163,7 @@ export function AppContextProvider({
     };
 
     getGeneres();
-  }, [dispatch]);
+  }, []);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>

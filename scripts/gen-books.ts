@@ -2,6 +2,7 @@ import { chunking, uuid } from "@/lib/utils";
 import path from "path";
 import { faker } from "@faker-js/faker";
 import * as fs from "fs";
+import { GENRES } from "@adapters/repositories/GenresRepository";
 
 faker.seed(123);
 
@@ -44,58 +45,8 @@ const COVER_PATHS = [
 
 const EDITIONS = ["1st", "2nd", "3rd", "4th"];
 const FORMATS = ["Paperback", "Hardcover", "Ebook"];
-const GENRES = [
-  "Fiction",
-  "Non-Fiction",
-  "Science Fiction",
-  "Fantasy",
-  "Mystery",
-  "Thriller",
-  "Romance",
-  "Horror",
-  "Biography",
-  "Memoir",
-  "Self-Help",
-  "Cookbook",
-  "Art",
-  "History",
-  "Travel",
-  "Children's",
-  "Young Adult",
-  "Poetry",
-  "Graphic Novel",
-  "Comic Book",
-  "Manga",
-  "Dystopian",
-  "Adventure",
-  "Western",
-  "Historical Fiction",
-  "Literary Fiction",
-  "Short Stories",
-  "Plays",
-  "Essays",
-  "Anthology",
-  "Encyclopedia",
-  "Dictionary",
-  "Textbook",
-  "Reference",
-  "Guide",
-  "Journal",
-  "Magazine",
-  "Newspaper",
-  "Periodical",
-  "Almanac",
-  "Atlas",
-  "Gazetteer",
-  "Directory",
-  "Yearbook",
-  "Calendar",
-  "Catalog",
-  "Manual",
-  "Handbook",
-  "Workbook",
-  "Guidebook",
-];
+
+const genres = Object.keys(GENRES);
 
 export function createFakeBook(): Book {
   return {
@@ -113,7 +64,7 @@ export function createFakeBook(): Book {
     genres: [
       ...Array.from(
         { length: Math.floor(Math.random() * 3 + 1) },
-        () => GENRES[Math.floor(Math.random() * GENRES.length)]
+        () => genres[Math.floor(Math.random() * Object.keys(genres).length)]
       ),
     ],
     publishedDate: faker.date.past().toISOString(),

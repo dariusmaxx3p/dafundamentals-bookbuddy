@@ -10,3 +10,10 @@ export const TYPES = {
   LOGGER: Symbol.for("Logger"),
   METRICS: Symbol.for("Metrics"),
 };
+
+export type Genre = {
+  id: string;
+  genre: string;
+  description: string;
+  count?: number;
+};
