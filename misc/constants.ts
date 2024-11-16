@@ -46,3 +46,5 @@ export const DEFAULT_METADATA: Metadata = {
 };
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "/api";
+
+export const CONFIG_URL = process.env.NEXT_PUBLIC_CONFIG_URL ?? "/api/config/config.json";

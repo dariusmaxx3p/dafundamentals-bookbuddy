@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useChangeLocale, useCurrentLocale } from "@locales/client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function LocaleToogle(props: { className?: string; size?: number }) {
   const { className } = props;
@@ -34,11 +35,11 @@ export function LocaleToogle(props: { className?: string; size?: number }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => switchLocale("vi")}>
-          Tiếng Việt
+        <DropdownMenuItem onClick={() => switchLocale("vi")} className="flex flex-row justify-between items-center">
+          <span>Tiếng Việt</span> <Image src="/vi.svg" width={20} height={20} alt="Vietnamese-flag" />
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => switchLocale("en")}>
-          English
+        <DropdownMenuItem onClick={() => switchLocale("en")} className="flex flex-row justify-between items-center">
+          <span>English</span> <Image src="/en.svg" width={20} height={20} alt="English-flag" />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
