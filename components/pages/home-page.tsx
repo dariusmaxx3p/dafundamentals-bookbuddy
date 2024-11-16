@@ -6,32 +6,15 @@ import styles from "@styles/home-page.module.scss";
 import { MoveDown } from "lucide-react";
 import GradientLine from "@components/ui/grandient-line";
 import { useEffect, useState } from "react";
-import { AppContextActionType, useAppContext } from "@contexts/app-context";
-import { GENRES_URL } from "@/misc/constants";
+import { useAppContext } from "@contexts/app-context";
+import { useScopedI18n } from "@locales/client";
 
 export default function HomePage() {
-  const { state, dispatch } = useAppContext();
+  const { state } = useAppContext();
   const [genres, setGenres] = useState<string[]>([]);
 
-  useEffect(() => {
-    if (!dispatch) return;
-
-    const getGeneres = async () => {
-      const response = await fetch(GENRES_URL);
-      const data = await response.json();
-
-      const genres = data.data;
-
-      dispatch({
-        type: AppContextActionType.SET_GENRES,
-        payload: {
-          genres,
-        },
-      });
-    };
-
-    getGeneres();
-  }, [dispatch]);
+  const heroScopedT = useScopedI18n("hero");
+  const commonScopedT = useScopedI18n("common");
 
   useEffect(() => {
     setGenres(state.genres);
@@ -49,8 +32,7 @@ export default function HomePage() {
         >
           <div className="flex flex-col mr-[3rem]">
             <h2 className={`${styles["hero__text"]}`}>
-              Discover Your Next Great Read with BookBuddy – Your Ultimate
-              Reading Companion!
+              {heroScopedT("title")}
             </h2>
             <div className="flex flex-row items-center mt-4 justify-center">
               <motion.button
@@ -79,7 +61,7 @@ export default function HomePage() {
               fontWeight: 200,
             }}
           >
-            With
+            {commonScopedT("with")}
             <span
               className="mx-2 gradient-text text-5xl"
               style={{
@@ -88,7 +70,7 @@ export default function HomePage() {
             >
               {genres.length}
             </span>
-            Genres
+            {commonScopedT("genres")}
           </h3>
         </motion.div>
       </motion.div>

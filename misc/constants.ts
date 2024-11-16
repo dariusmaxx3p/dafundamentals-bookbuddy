@@ -1,4 +1,9 @@
+import exp from "constants";
 import { Metadata } from "next";
+
+export const LOCAL_STORAGE_KEYS = {
+  LOCALE: "bookbuddy-locale",
+};
 
 export const DEFAULT_METADATA: Metadata = {
   title: "BookBuddy",

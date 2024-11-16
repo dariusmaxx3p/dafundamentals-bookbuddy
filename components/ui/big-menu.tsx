@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { X, Menu, MoveRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useCurrentLocale } from "@locales/client";
+import { useCurrentLocale, useScopedI18n } from "@locales/client";
 import {
   AnimatePresence,
   motion,
@@ -14,9 +14,23 @@ import {
 export default function BigMenu() {
   const [open, setOpen] = useState(true);
   const [hoverItem, setHoverItem] = useState("");
-  const items: string[] = ["Features", "Books", "About Us"];
   const locale = useCurrentLocale();
   const router = useRouter();
+  const commonScopeT = useScopedI18n("common");
+  const items: { slug: string; name: () => string }[] = [
+    {
+      slug: "features",
+      name: () => commonScopeT("feature"),
+    },
+    {
+      slug: "books",
+      name: () => commonScopeT("books"),
+    },
+    {
+      slug: "aboutus",
+      name: () => commonScopeT("aboutus"),
+    },
+  ];
 
   const motionWidth = useMotionValue(90);
   const motionHeight = useMotionValue(90);
@@ -75,13 +89,13 @@ export default function BigMenu() {
           >
             {items.map((item, index) => (
               <button
-                key={item}
+                key={item.slug}
                 className="flex flex-row py-4 items-center justify-start"
-                onMouseEnter={() => onItemMouseEnter(item)}
+                onMouseEnter={() => onItemMouseEnter(item.slug)}
                 onMouseLeave={onItemMouseLeave}
-                onClick={() => onItemClick(item)}
+                onClick={() => onItemClick(item.slug)}
               >
-                {hoverItem === item && (
+                {hoverItem === item.slug && (
                   <motion.div
                     className="flex flex-row mr-[2rem]"
                     layout
@@ -98,7 +112,7 @@ export default function BigMenu() {
                     fontWeight: "200",
                   }}
                 >
-                  {item}
+                  {item.name()}
                 </motion.span>
               </button>
             ))}

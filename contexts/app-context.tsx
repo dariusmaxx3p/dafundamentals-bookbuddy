@@ -3,10 +3,12 @@
 
 import { Config } from "@/config/config-loader";
 import { DEFAULT_FEATURES } from "@/config/features";
-import { CONFIG_URL } from "@/misc/constants";
+import { CONFIG_URL, GENRES_URL, LOCAL_STORAGE_KEYS } from "@/misc/constants";
+import { useChangeLocale } from "@locales/client";
 import {
   createContext,
   ReactElement,
+  ReactNode,
   useContext,
   useEffect,
   useReducer,
@@ -16,6 +18,7 @@ export enum AppContextActionType {
   SET_FEATURES = "SET_FEATURES",
   TOGGLE_FEATURE = "TOGGLE_FEATURE",
   SET_GENRES = "SET_GENRES",
+  SET_LOCALE = "SET_LOCALE",
 }
 
 export type AppContextAction = {
@@ -25,6 +28,7 @@ export type AppContextAction = {
 
 export type AppContextFull = Config & {
   genres: string[];
+  locale: string;
 };
 
 export type AppContextType = {
@@ -70,6 +74,17 @@ function appContextReducer(state: AppContextFull, action: AppContextAction) {
         genres: action.payload.genres,
       };
     }
+    case AppContextActionType.SET_LOCALE: {
+      if (!action.payload.locale) {
+        console.error("SET_LOCALE action requires a locale payload");
+        return state;
+      }
+      localStorage.setItem("bookbuddy-locale", action.payload.locale);
+      return {
+        ...state,
+        locale: action.payload.locale,
+      };
+    }
     default:
       return state;
   }
@@ -78,12 +93,72 @@ function appContextReducer(state: AppContextFull, action: AppContextAction) {
 export function AppContextProvider({
   children,
 }: {
-  children: ReactElement;
+  children: ReactNode;
 }): ReactElement {
   const [state, dispatch] = useReducer(appContextReducer, {
     features: DEFAULT_FEATURES,
     genres: [],
+    locale: "en",
   });
+
+  const changeLocale = useChangeLocale();
+
+  // Load default config
+  useEffect(() => {
+    if (!dispatch) return;
+
+    const loadConfig = async () => {
+      const response = await fetch(CONFIG_URL);
+      const data = await response.json();
+
+      dispatch!({
+        type: AppContextActionType.SET_FEATURES,
+        payload: {
+          features: data.data.features,
+        },
+      });
+    };
+
+    loadConfig();
+  }, []);
+
+  // Load locale
+  useEffect(() => {
+    if (!dispatch) return;
+
+    const locale = localStorage.getItem(LOCAL_STORAGE_KEYS.LOCALE) ?? "en";
+    if (locale) {
+      dispatch!({
+        type: AppContextActionType.SET_LOCALE,
+        payload: {
+          locale,
+        },
+      });
+
+      changeLocale(locale as any);
+    }
+  }, []);
+
+  // Load genres
+  useEffect(() => {
+    if (!dispatch) return;
+
+    const getGeneres = async () => {
+      const response = await fetch(GENRES_URL);
+      const data = await response.json();
+
+      const genres = data.data;
+
+      dispatch({
+        type: AppContextActionType.SET_GENRES,
+        payload: {
+          genres,
+        },
+      });
+    };
+
+    getGeneres();
+  }, [dispatch]);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
@@ -94,25 +169,6 @@ export function AppContextProvider({
 
 export function useAppContext(): AppContextType {
   const context = useContext(AppContext);
-
-  // Load default config
-  useEffect(() => {
-    if (!context?.dispatch) return;
-
-    const loadConfig = async () => {
-      const response = await fetch(CONFIG_URL);
-      const data = await response.json();
-
-      context.dispatch!({
-        type: AppContextActionType.SET_FEATURES,
-        payload: {
-          features: data.data.features,
-        },
-      });
-    };
-
-    loadConfig();
-  }, []);
 
   if (context === undefined) {
     throw new Error("useAppContext must be used within a AppContextProvider");
