@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import * as React from "react";
@@ -12,19 +13,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import useToggleTheme from "@hooks/useToggleTheme";
 
 export function ModeToggle(props: { className?: string; size?: number }) {
   const { className } = props;
-  const { setTheme, theme } = useTheme();
+  const { theme } = useTheme();
+  const { toggleTheme } = useToggleTheme();
 
   const switchTheme = (newTheme: string) => {
     if (!document.startViewTransition) {
-      setTheme(newTheme);
+      toggleTheme(newTheme as any);
       return;
     }
 
     document.startViewTransition(() => {
-      setTheme(newTheme);
+      toggleTheme(newTheme as any);
       const root = document.documentElement;
       if (newTheme === "dark") {
         root.classList.add("dark");

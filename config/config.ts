@@ -10,6 +10,16 @@ import GetGenres from "@usecases/GetGenres";
 
 const bookBuddyContainer = new Container();
 
+// Utils
+bookBuddyContainer
+  .bind<ILogger>(TYPES.LOGGER)
+  .to(WinstonLogger)
+  .inSingletonScope();
+bookBuddyContainer
+  .bind<IMetrics>(TYPES.METRICS)
+  .to(SimpleMetrics)
+  .inSingletonScope();
+
 // Repositories
 bookBuddyContainer
   .bind<BookRepository>(TYPES.BOOK_REPOSITORY)
@@ -25,14 +35,6 @@ bookBuddyContainer
   .bind<ResponsePresenter>(TYPES.RESPONSE_PRESENTER)
   .to(ResponsePresenter);
 bookBuddyContainer.bind<LoadBooks>(TYPES.LOAD_BOOKS).to(LoadBooks);
-bookBuddyContainer
-  .bind<ILogger>(TYPES.LOGGER)
-  .to(WinstonLogger)
-  .inSingletonScope();
-bookBuddyContainer
-  .bind<IMetrics>(TYPES.METRICS)
-  .to(SimpleMetrics)
-  .inSingletonScope();
 bookBuddyContainer.bind<GetGenres>(TYPES.GET_GENRES).to(GetGenres);
 
 export { bookBuddyContainer };

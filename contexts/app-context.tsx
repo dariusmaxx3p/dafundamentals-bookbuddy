@@ -21,6 +21,7 @@ export enum AppContextActionType {
   TOGGLE_FEATURE = "TOGGLE_FEATURE",
   SET_GENRES = "SET_GENRES",
   SET_LOCALE = "SET_LOCALE",
+  SET_THEME = "SET_THEME",
 }
 
 export type AppContextAction = {
@@ -31,6 +32,7 @@ export type AppContextAction = {
 export type AppContextFull = Config & {
   genres: Genre[];
   locale: string;
+  theme?: "light" | "dark";
 };
 
 export type AppContextType = {
@@ -85,6 +87,16 @@ function appContextReducer(state: AppContextFull, action: AppContextAction) {
       return {
         ...state,
         locale: action.payload.locale,
+      };
+    }
+    case AppContextActionType.SET_THEME: {
+      if (!action.payload.theme) {
+        console.error("SET_THEME action requires a theme payload");
+        return state;
+      }
+      return {
+        ...state,
+        theme: action.payload.theme,
       };
     }
     default:

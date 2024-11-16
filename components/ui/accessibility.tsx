@@ -11,7 +11,7 @@ export default function Accessibility() {
   const allowToogleLocale = state.features[FEATURES.TOGGLE_LOCALE];
   return (
     <motion.div className="flex flex-row">
-      {allowToogleTheme && <ModeToggle />}
+      {allowToogleTheme && <ModeToggle className="mr-4" />}
       {allowToogleLocale && <LocaleToogle />}
     </motion.div>
   );

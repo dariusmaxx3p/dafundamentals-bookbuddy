@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { LOCAL_STORAGE_KEYS } from "@/misc/constants";
 import { AppContextActionType, useAppContext } from "@contexts/app-context";
 import { useChangeLocale } from "@locales/client";
 
-export default function useLocale() {
+export default function useToggleLocale() {
   const appContext = useAppContext();
   const changeLocale = useChangeLocale();
 
-  const setLocale = (locale: string) => {
+  const toggleLocale = (locale: string) => {
     if (!appContext.dispatch) return;
 
     appContext.dispatch({
@@ -23,5 +24,5 @@ export default function useLocale() {
     changeLocale(locale as any);
   };
 
-  return { setLocale };
+  return { toggleLocale };
 }

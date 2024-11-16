@@ -1,8 +1,8 @@
-import exp from "constants";
 import { Metadata } from "next";
 
 export const LOCAL_STORAGE_KEYS = {
   LOCALE: "bookbuddy-locale",
+  THEME: "bookbuddy-theme",
 };
 
 export const DEFAULT_METADATA: Metadata = {
@@ -56,3 +56,5 @@ export const CONFIG_URL =
   process.env.NEXT_PUBLIC_CONFIG_URL ?? "/api/config/config.json";
 
 export const GENRES_URL = process.env.NEXT_PUBLIC_GENRES_URL ?? "/api/genres";
+
+export const BOOKS_URL = process.env.NEXT_PUBLIC_BOOKS_URL ?? "/api/books";

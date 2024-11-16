@@ -13,15 +13,15 @@ import { cn } from "@/lib/utils";
 import { useCurrentLocale } from "@locales/client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import useLocale from "@hooks/useLocale";
+import useToggleLocale from "@hooks/useToggleLocale";
 
 export function LocaleToogle(props: { className?: string; size?: number }) {
   const { className } = props;
-  const { setLocale } = useLocale();
+  const { toggleLocale } = useToggleLocale();
   const locale = useCurrentLocale();
 
   const switchLocale = (newLocale: string) => {
-    setLocale(newLocale as any);
+    toggleLocale(newLocale as any);
   };
 
   return (
