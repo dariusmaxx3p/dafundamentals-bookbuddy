@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { useChangeLocale, useCurrentLocale } from "@locales/client";
+import { useCurrentLocale } from "@locales/client";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import useLocale from "@hooks/useLocale";
