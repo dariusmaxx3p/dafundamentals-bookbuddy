@@ -2797,3 +2797,6 @@
 {"level":"info","message":"Operation \"getGenres\" took 5.573 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:25:25.373Z"}
 {"level":"info","message":"Operation \"getGenres\" took 4.739 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:25:25.383Z"}
 {"level":"info","message":"Operation \"getGenres\" took 2.713 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:25:25.391Z"}
+{"level":"info","message":"Operation \"getGenres\" took 5.276 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:26:18.046Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.290 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:26:18.070Z"}
+{"level":"info","message":"Operation \"getGenres\" took 3.967 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:26:28.918Z"}
