@@ -2827,3 +2827,6 @@
 {"level":"info","message":"Operation \"getGenres\" took 1.230 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:40:32.436Z"}
 {"level":"info","message":"Operation \"getGenres\" took 1.985 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:40:35.228Z"}
 {"level":"info","message":"Operation \"getGenres\" took 1.389 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:40:35.247Z"}
+{"level":"info","message":"Operation \"getGenres\" took 12.177 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:43:06.347Z"}
+{"level":"info","message":"Operation \"getGenres\" took 5.522 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:43:21.216Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.167 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:43:21.229Z"}
