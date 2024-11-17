@@ -15,4 +15,7 @@ export default {
   books: {
     explore: "Khám phá sách của chúng tôi...",
   },
+  about: {
+    about: "Về",
+  },
 } as const;

@@ -15,4 +15,7 @@ export default {
   books: {
     explore: "Explore our books...",
   },
+  about: {
+    about: "About",
+  },
 } as const;
