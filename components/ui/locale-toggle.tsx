@@ -29,9 +29,9 @@ export function LocaleToogle(props: { className?: string; size?: number }) {
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size={"icon"} className={cn(`${className}`)}>
           {locale === "vi" ? (
-            <motion.span>Vi</motion.span>
+            <motion.span className="font-sans">Vi</motion.span>
           ) : (
-            <motion.span>En</motion.span>
+            <motion.span className="font-sans">En</motion.span>
           )}
         </Button>
       </DropdownMenuTrigger>
@@ -40,14 +40,14 @@ export function LocaleToogle(props: { className?: string; size?: number }) {
           onClick={() => switchLocale("vi")}
           className="flex flex-row justify-between items-center"
         >
-          <span>Tiếng Việt</span>{" "}
+          <span className="font-sans">Tiếng Việt</span>{" "}
           <Image src="/vi.svg" width={20} height={20} alt="Vietnamese-flag" />
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => switchLocale("en")}
           className="flex flex-row justify-between items-center"
         >
-          <span>English</span>{" "}
+          <span className="font-sans">English</span>{" "}
           <Image src="/en.svg" width={20} height={20} alt="English-flag" />
         </DropdownMenuItem>
       </DropdownMenuContent>

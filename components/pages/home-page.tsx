@@ -112,7 +112,7 @@ export default function HomePage() {
           >
             {commonScopedT("with")}
             <span
-              className="mx-2 gradient-text text-5xl"
+              className="mx-2 gradient-text text-5xl font-serif-bold"
               style={{
                 fontWeight: 600,
               }}
@@ -176,7 +176,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <span
-                    className="text-2xl font-bold"
+                    className="text-2xl font-bold font-serif"
                     style={{
                       fontWeight: 200,
                       fontSize: "1.25rem",

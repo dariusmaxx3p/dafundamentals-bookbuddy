@@ -45,7 +45,7 @@ export default function Logo(props: {
           animate={
             hover ? { opacity: 1, width: "auto" } : { opacity: 0, width: 0 }
           }
-          className={`${styles["logo__text"]}`}
+          className={`${styles["logo__text"]} font-serif`}
           style={{
             fontWeight: 200,
             letterSpacing: "0.2rem",

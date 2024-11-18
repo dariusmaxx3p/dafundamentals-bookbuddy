@@ -2830,3 +2830,17 @@
 {"level":"info","message":"Operation \"getGenres\" took 12.177 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:43:06.347Z"}
 {"level":"info","message":"Operation \"getGenres\" took 5.522 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:43:21.216Z"}
 {"level":"info","message":"Operation \"getGenres\" took 1.167 ms.","service":"bookbuddy-service","timestamp":"2024-11-17T02:43:21.229Z"}
+{"level":"info","message":"Operation \"getGenres\" took 44.602 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:09:16.657Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.095 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:09:16.667Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.237 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:09:16.672Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.155 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:09:17.061Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.727 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:09:17.069Z"}
+{"level":"info","message":"Operation \"getGenres\" took 2.610 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:09:50.826Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.190 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:09:50.833Z"}
+{"level":"info","message":"Operation \"getGenres\" took 0.965 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:09:50.837Z"}
+{"level":"info","message":"Operation \"getGenres\" took 7.093 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:10:05.653Z"}
+{"level":"info","message":"Operation \"getGenres\" took 2.697 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:10:05.661Z"}
+{"level":"info","message":"Operation \"getGenres\" took 0.934 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:10:05.667Z"}
+{"level":"info","message":"Operation \"getGenres\" took 6.199 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:12:36.739Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.065 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:12:36.746Z"}
+{"level":"info","message":"Operation \"getGenres\" took 1.043 ms.","service":"bookbuddy-service","timestamp":"2024-11-18T14:12:36.749Z"}

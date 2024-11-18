@@ -137,6 +137,14 @@ export default {
       backgroundImage: {
         brilliant: "url('/brilliant.png')",
       },
+      fontFamily: {
+        serif: "var(--font-philosopher-regular)",
+        "serif-bold": "var(--font-philosopher-bold)",
+        "serif-italic": "var(--font-philosopher-italic)",
+        "serif-bold-italic": "var(--font-philosopher-bold-italic)",
+        sans: "var(--font-mulish)",
+        "sans-italic": "var(--font-mulish-italic)",
+      },
     },
   },
   plugins: [tailwindcssAnimate],
